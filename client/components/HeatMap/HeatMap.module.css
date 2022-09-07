@@ -1,0 +1,20 @@
+.HeatMapBox {
+  margin: 2px 2px 2px 2px;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid white;
+  background-color: white;
+}
+
+.HeatDayRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.HeatMapContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.HeatMapMonthContainer {
+  margin-left: 10px;
+}
