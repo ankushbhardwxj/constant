@@ -18,6 +18,7 @@ const HeatMap = () => {
   ];
   return (
     <div className={styles.HeatMapContainer}>
+      <HeatMapYear />
       {months.map((item, idx) => (
         <HeatMapMonth key={idx} month={item} days={31} />
       ))}
@@ -30,7 +31,7 @@ const HeatMapYearSelector = () => {
 };
 
 const HeatMapYear = () => {
-  return <div></div>;
+  return <div>2022</div>;
 };
 
 const HeatMapMonth = ({ month, days }: { month: string; days: number }) => {
