@@ -1,25 +1,40 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import SplashScreen from "./screens/SplashScreen";
-import { useFonts } from "expo-font";
-import { useCallback, useEffect } from "react";
+import SplashScreen from "./screens/SplashScreen/SplashScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
+import { NativeBaseProvider } from "native-base";
+import * as Font from "expo-font";
+import WorkoutTaskScreen from "./screens/WorkoutTaskScreen/WorkoutTaskScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
+  const [fontsLoaded] = Font.useFonts({
+    "SF-Pro": require("./assets/fonts/SF-Pro.ttf"),
+  });
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="SplashScreen"
-          component={SplashScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="WorkoutTaskScreen">
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="HomeScreen"
+            component={HomeScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="SplashScreen"
+            component={SplashScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="WorkoutTaskScreen"
+            component={WorkoutTaskScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 

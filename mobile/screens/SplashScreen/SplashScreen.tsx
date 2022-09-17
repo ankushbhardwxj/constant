@@ -4,36 +4,14 @@ import { View, Text } from "react-native";
 import * as SplashScreenExpo from "expo-splash-screen";
 
 const SplashScreen = () => {
-  const [fontsLoaded] = useFonts({
-    "SF-Pro": require("../assets/fonts/SF-Pro.ttf"),
-  });
-
-  useEffect(() => {
-    async function prepare() {
-      await SplashScreenExpo.preventAutoHideAsync();
-    }
-    prepare();
-  }, []);
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreenExpo.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
-    <View
-      // onLayout={onLayoutRootView}
-      style={{ height: "100%", width: "100%", backgroundColor: "black" }}
-    >
+    <View style={{ height: "100%", width: "100%", backgroundColor: "black" }}>
       <Text
+        // @ts-ignore
         style={{
           color: "white",
           fontFamily: "SF-Pro",
+          fontWeight: "bold",
           fontSize: "48",
           marginLeft: "auto",
           marginRight: "auto",
