@@ -1,25 +1,16 @@
 import React from "react";
 import styles from "./HeatMap.module.css";
+import moment from "moment";
+import { MONTHS } from "./constant";
+
+const dates = moment().year(2022).month(2);
+console.log(dates);
 
 const HeatMap = () => {
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
   return (
     <div className={styles.HeatMapContainer}>
-      <HeatMapYear />
-      {months.map((item, idx) => (
+      {/* <HeatMapYear /> */}
+      {MONTHS.map((item, idx) => (
         <HeatMapMonth key={idx} month={item} days={31} />
       ))}
     </div>
