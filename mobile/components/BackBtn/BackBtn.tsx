@@ -1,7 +1,8 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
-import { Text } from "native-base";
+import { Icon, Text } from "native-base";
 import { useNavigation } from "@react-navigation/native";
+import { FontAwesome } from "@expo/vector-icons";
 
 const BackBtn: React.FC<any> = () => {
   const navigation = useNavigation<any>();
@@ -11,9 +12,9 @@ const BackBtn: React.FC<any> = () => {
   };
 
   return (
-    <View style={{ marginTop: "20%" }}>
+    <View style={{ marginLeft: 5 }}>
       <TouchableOpacity onPress={handleGoBack}>
-        <Text color={"white"}>Back</Text>
+        <Icon size={"2xl"} color="white" as={FontAwesome} name="angle-left" />
       </TouchableOpacity>
     </View>
   );

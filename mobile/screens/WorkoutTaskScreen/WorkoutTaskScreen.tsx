@@ -1,11 +1,21 @@
+import { Actionsheet, Button, useDisclose } from "native-base";
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import Header from "../../components/Header/Header";
 
 interface IWorkoutTaskProps {}
 
+const AddTaskBtn = () => {
+  return (
+    <View>
+      <TouchableOpacity></TouchableOpacity>
+    </View>
+  );
+};
+
 const WorkoutTaskScreen: React.FC<IWorkoutTaskProps> = () => {
+  const { isOpen, onOpen, onClose } = useDisclose();
   return (
     <View
       style={{
@@ -13,8 +23,17 @@ const WorkoutTaskScreen: React.FC<IWorkoutTaskProps> = () => {
         height: "100%",
       }}
     >
-      <BackBtn />
       <Header title="Workout" />
+      {/* <AddTaskBtn /> */}
+      <Actionsheet isOpen={isOpen} onClose={onClose}>
+        <Actionsheet.Content>
+          <Actionsheet.Item>Option 1</Actionsheet.Item>
+          <Actionsheet.Item>Option 1</Actionsheet.Item>
+          <Actionsheet.Item>Option 1</Actionsheet.Item>
+          <Actionsheet.Item>Option 1</Actionsheet.Item>
+        </Actionsheet.Content>
+      </Actionsheet>
+      <Button onPress={onOpen}>ActionSheet</Button>
     </View>
   );
 };

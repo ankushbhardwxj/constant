@@ -21,8 +21,8 @@ const TaskCard: React.FC<ITaskCardProps> = ({ title, description }) => {
           borderColor: "white",
           borderWidth: 2,
           marginBottom: 12,
-          marginLeft: 5,
-          marginRight: 5,
+          marginLeft: 10,
+          marginRight: 10,
         }}
       >
         <Heading color={"white"} size={"lg"}>
