@@ -19,10 +19,14 @@ interface IHomeScreenProps {
 const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }) => {
   const navigator = useNavigation<any>();
 
-  const handlePress = () => {
-    // navigation("WorkoutTaskScreen", {});
-    navigator.navigate("WorkoutTaskScreen", {});
-    console.log("Navigate");
+  // const handlePress = () => {
+  //   // navigation("WorkoutTaskScreen", {});
+  //   navigator.navigate("WorkoutTaskScreen", {});
+  //   console.log("Navigate");
+  // };
+
+  const handleNavigate = (screen: string) => {
+    navigator.navigate(screen, {});
   };
 
   return (
@@ -32,11 +36,35 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }) => {
         height: "100%",
       }}
     >
-      <Header title="Today" hideBackBtn />
+      <View style={{ marginTop: 30 }}>
+        <Header title="Today" hideBackBtn subHeader="4 Dec 2022, Sunday" />
+      </View>
       <View style={{ marginTop: 40 }}>
-        <TaskCard title="Hello" description="hello" />
-        <TaskCard title="Hello" description="hello" />
-        <TaskCard title="Hello" description="hello" />
+        <TaskCard
+          title="Workout"
+          description="chest, shoulder"
+          handleNavigate={() => handleNavigate("WorkoutTaskScreen")}
+        />
+        <TaskCard
+          title="Coding"
+          description="4 tasks left"
+          handleNavigate={() => handleNavigate("WorkoutTaskScreen")}
+        />
+        <TaskCard
+          title="Diet"
+          description="5 glasses of water today"
+          handleNavigate={() => handleNavigate("WorkoutTaskScreen")}
+        />
+        <TaskCard
+          title="Office"
+          description="All tasks are done for the day"
+          handleNavigate={() => handleNavigate("WorkoutTaskScreen")}
+        />
+        <TaskCard
+          title="Todo"
+          description="5 tasks left"
+          handleNavigate={() => handleNavigate("TodoScreen")}
+        />
       </View>
       {/* <Button onPress={handlePress}>Click me</Button> */}
       {/* <BottomNavigator /> */}

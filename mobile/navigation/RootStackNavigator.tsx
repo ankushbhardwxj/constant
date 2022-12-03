@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider, Stack } from "native-base";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
+import TodoScreen from "../screens/TodoScreen/TodoScreen";
 import WorkoutTaskScreen from "../screens/WorkoutTaskScreen/WorkoutTaskScreen";
 import BottomNavigator from "./BottomNavigator";
 
@@ -30,6 +31,11 @@ const RootStackNavigator = () => {
           options={{ headerShown: false }}
           name="WorkoutTaskScreen"
           component={WorkoutTaskScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="TodoScreen"
+          component={TodoScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -6,16 +6,18 @@ import { TouchableOpacity, View } from "react-native";
 interface ITaskCardProps {
   title?: string;
   description?: string;
+  handleNavigate?: () => void;
 }
 
-const TaskCard: React.FC<ITaskCardProps> = ({ title, description }) => {
+const TaskCard: React.FC<ITaskCardProps> = ({
+  title,
+  description,
+  handleNavigate,
+}) => {
   const navigator = useNavigation<any>();
-  const handlePress = () => {
-    navigator.navigate("WorkoutTaskScreen", {});
-  };
 
   return (
-    <TouchableOpacity onPress={handlePress}>
+    <TouchableOpacity onPress={handleNavigate}>
       <Card
         style={{
           borderColor: "white",

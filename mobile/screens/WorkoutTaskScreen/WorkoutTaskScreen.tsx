@@ -6,14 +6,6 @@ import Header from "../../components/Header/Header";
 
 interface IWorkoutTaskProps {}
 
-const AddTaskBtn = () => {
-  return (
-    <View>
-      <TouchableOpacity></TouchableOpacity>
-    </View>
-  );
-};
-
 const WorkoutTaskScreen: React.FC<IWorkoutTaskProps> = () => {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
@@ -24,7 +16,6 @@ const WorkoutTaskScreen: React.FC<IWorkoutTaskProps> = () => {
       }}
     >
       <Header title="Workout" />
-      {/* <AddTaskBtn /> */}
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>
           <Actionsheet.Item>Option 1</Actionsheet.Item>
