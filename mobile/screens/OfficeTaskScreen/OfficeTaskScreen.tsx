@@ -69,7 +69,7 @@ const OfficeTaskScreen: React.FC<IOfficeTaskScreenProps> = () => {
       }}
     >
       <View style={{ marginTop: 15 }}>
-        <Header title="Coding" />
+        <Header title="Office" />
       </View>
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>

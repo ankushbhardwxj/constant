@@ -58,7 +58,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }) => {
         <TaskCard
           title="Office"
           description="All tasks are done for the day"
-          handleNavigate={() => handleNavigate("WorkoutTaskScreen")}
+          handleNavigate={() => handleNavigate("OfficeTaskScreen")}
         />
         <TaskCard
           title="Todo"

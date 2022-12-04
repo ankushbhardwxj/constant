@@ -4,6 +4,7 @@ import { NativeBaseProvider, Stack } from "native-base";
 import CodingTaskScreen from "../screens/CodingTaskScreen/CodingTaskScreen";
 import DietTaskScreen from "../screens/DietTaskScreen/DietTaskScreen";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
+import OfficeTaskScreen from "../screens/OfficeTaskScreen/OfficeTaskScreen";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
 import TodoScreen from "../screens/TodoScreen/TodoScreen";
 import WorkoutTaskScreen from "../screens/WorkoutTaskScreen/WorkoutTaskScreen";
@@ -48,6 +49,11 @@ const RootStackNavigator = () => {
           options={{ headerShown: false }}
           name="DietTaskScreen"
           component={DietTaskScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="OfficeTaskScreen"
+          component={OfficeTaskScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
