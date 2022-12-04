@@ -48,12 +48,12 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }) => {
         <TaskCard
           title="Coding"
           description="4 tasks left"
-          handleNavigate={() => handleNavigate("WorkoutTaskScreen")}
+          handleNavigate={() => handleNavigate("CodingTaskScreen")}
         />
         <TaskCard
           title="Diet"
           description="5 glasses of water today"
-          handleNavigate={() => handleNavigate("WorkoutTaskScreen")}
+          handleNavigate={() => handleNavigate("DietTaskScreen")}
         />
         <TaskCard
           title="Office"

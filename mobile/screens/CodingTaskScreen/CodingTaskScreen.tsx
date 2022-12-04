@@ -17,9 +17,9 @@ import { View } from "react-native";
 import Header from "../../components/Header/Header";
 import { Ionicons } from "@expo/vector-icons";
 
-interface ITodoScreenProps {}
+interface ICodingTaskScreenProps {}
 
-interface ITodoTask {
+interface ICodingTask {
   title: string;
   description?: string;
   createdAt: number;
@@ -27,16 +27,16 @@ interface ITodoTask {
   done: boolean;
 }
 
-const TodoScreen: React.FC<ITodoScreenProps> = () => {
+const CodingTaskScreen: React.FC<ICodingTaskScreenProps> = () => {
   const { isOpen, onOpen, onClose } = useDisclose();
-  const [tasks, setTasks] = useState<ITodoTask[]>([]);
+  const [tasks, setTasks] = useState<ICodingTask[]>([]);
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [priority, setPriority] = useState<string>("low");
 
   const handleAddTask = () => {
     onClose();
-    const taskObj: ITodoTask = {
+    const taskObj: ICodingTask = {
       title,
       description,
       createdAt: Date.now(),
@@ -50,7 +50,7 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
   };
 
   const handleTaskDone = (idx: number) => {
-    let newTasks = tasks.map((item: ITodoTask, i: number) => {
+    let newTasks = tasks.map((item: ICodingTask, i: number) => {
       if (idx === i) item.done = !item.done;
       return item;
     });
@@ -69,7 +69,7 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
       }}
     >
       <View style={{ marginTop: 15 }}>
-        <Header title="Tasks" />
+        <Header title="Coding" />
       </View>
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>
@@ -178,7 +178,7 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
             <Text style={{ color: "white" }}>No more tasks remaining.</Text>
           </View>
         )}
-        {tasks.map((item: ITodoTask, idx: number) => (
+        {tasks.map((item: ICodingTask, idx: number) => (
           <View
             key={idx}
             style={{
@@ -238,4 +238,4 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
   );
 };
 
-export default TodoScreen;
+export default CodingTaskScreen;

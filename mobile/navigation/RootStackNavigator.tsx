@@ -1,6 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider, Stack } from "native-base";
+import CodingTaskScreen from "../screens/CodingTaskScreen/CodingTaskScreen";
+import DietTaskScreen from "../screens/DietTaskScreen/DietTaskScreen";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
 import TodoScreen from "../screens/TodoScreen/TodoScreen";
@@ -36,6 +38,16 @@ const RootStackNavigator = () => {
           options={{ headerShown: false }}
           name="TodoScreen"
           component={TodoScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="CodingTaskScreen"
+          component={CodingTaskScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="DietTaskScreen"
+          component={DietTaskScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

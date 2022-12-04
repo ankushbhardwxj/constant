@@ -1,6 +1,5 @@
 import {
   Actionsheet,
-  Badge,
   Button,
   Checkbox,
   Heading,
@@ -17,49 +16,10 @@ import { View } from "react-native";
 import Header from "../../components/Header/Header";
 import { Ionicons } from "@expo/vector-icons";
 
-interface ITodoScreenProps {}
+interface IDietTaskScreenProps {}
 
-interface ITodoTask {
-  title: string;
-  description?: string;
-  createdAt: number;
-  priority?: string;
-  done: boolean;
-}
-
-const TodoScreen: React.FC<ITodoScreenProps> = () => {
+const DietTaskScreen: React.FC<IDietTaskScreenProps> = () => {
   const { isOpen, onOpen, onClose } = useDisclose();
-  const [tasks, setTasks] = useState<ITodoTask[]>([]);
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [priority, setPriority] = useState<string>("low");
-
-  const handleAddTask = () => {
-    onClose();
-    const taskObj: ITodoTask = {
-      title,
-      description,
-      createdAt: Date.now(),
-      priority,
-      done: false,
-    };
-    setTasks([taskObj, ...tasks]);
-    setTitle("");
-    setDescription("");
-    setPriority("");
-  };
-
-  const handleTaskDone = (idx: number) => {
-    let newTasks = tasks.map((item: ITodoTask, i: number) => {
-      if (idx === i) item.done = !item.done;
-      return item;
-    });
-    setTasks(newTasks);
-  };
-
-  useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
 
   return (
     <View
@@ -69,7 +29,7 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
       }}
     >
       <View style={{ marginTop: 15 }}>
-        <Header title="Tasks" />
+        <Header title="Diet" />
       </View>
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>
@@ -90,7 +50,7 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
               <Heading size={"lg"}>Add Task</Heading>
               <Button
                 style={{ backgroundColor: "transparent" }}
-                onPress={handleAddTask}
+                onPress={() => {}}
               >
                 <Icon as={Ionicons} name="checkmark" size={"lg"} />
               </Button>
@@ -98,8 +58,8 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
             <View style={{ marginTop: 20 }}>
               <Heading size="sm">Task Title</Heading>
               <Input
-                value={title}
-                onChangeText={setTitle}
+                value={""}
+                onChangeText={() => {}}
                 placeholder="Buy private jet..."
                 w={"100%"}
               />
@@ -107,8 +67,8 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
             <View style={{ marginTop: 20 }}>
               <Heading size="sm">Description</Heading>
               <TextArea
-                value={description}
-                onChangeText={setDescription}
+                value={""}
+                onChangeText={() => {}}
                 autoCompleteType={""}
                 placeholder="Get 100Ms and fly to Switzerland..."
                 w="100%"
@@ -119,8 +79,8 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
             >
               <Heading size="sm">Priority</Heading>
               <Radio.Group
-                onChange={setPriority}
-                defaultValue={priority}
+                onChange={() => {}}
+                defaultValue="low"
                 name="priority cue"
               >
                 <Stack
@@ -170,72 +130,8 @@ const TodoScreen: React.FC<ITodoScreenProps> = () => {
           <Text style={{ color: "white" }}>Add a task</Text>
         </Button>
       </View>
-      <View>
-        {tasks.length === 0 && (
-          <View
-            style={{ marginLeft: "auto", marginRight: "auto", marginTop: 20 }}
-          >
-            <Text style={{ color: "white" }}>No more tasks remaining.</Text>
-          </View>
-        )}
-        {tasks.map((item: ITodoTask, idx: number) => (
-          <View
-            key={idx}
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              marginLeft: 20,
-              marginTop: 20,
-              borderWidth: 1,
-              borderColor: "white",
-              padding: 15,
-              borderRadius: 10,
-              marginRight: 20,
-            }}
-          >
-            <View style={{ marginTop: 7 }}>
-              <Checkbox
-                onTouchStart={() => handleTaskDone(idx)}
-                accessibilityLabel="1"
-                value={""}
-              />
-            </View>
-
-            <View
-              style={{
-                width: "100%",
-                paddingRight: 20,
-              }}
-            >
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Heading size={"sm"} style={{ color: "white", marginLeft: 10 }}>
-                  {item.title}
-                </Heading>
-                {item.priority === "high" && (
-                  <Badge colorScheme={"red"}>{item.priority}</Badge>
-                )}
-                {item.priority === "low" && (
-                  <Badge colorScheme={"green"}>{item.priority}</Badge>
-                )}
-                {item.priority === "medium" && (
-                  <Badge colorScheme={"yellow"}>{item.priority}</Badge>
-                )}
-              </View>
-              <Text style={{ color: "white", marginLeft: 10 }}>
-                {item.description}
-              </Text>
-            </View>
-          </View>
-        ))}
-      </View>
     </View>
   );
 };
 
-export default TodoScreen;
+export default DietTaskScreen;
