@@ -2,7 +2,7 @@ package schema
 
 import "github.com/kamva/mgm/v3"
 
-type GymTaskSchema struct {
+type WorkoutTaskSchema struct {
 	mgm.DefaultModel `bson:",inline"`
 	ExerciseName string `json:"ExerciseName" bson:"ExerciseName"`
 	Weight string `json:"Weight" bson:"Weight"`
@@ -10,8 +10,8 @@ type GymTaskSchema struct {
 	Sets string `json:"Sets" bson:"Sets"`
 }
 
-func CreateNewGymTask (ExerciseName string, Weight string, Reps string, Sets string) *GymTaskSchema {
-	return &GymTaskSchema{
+func CreateNewWorkoutTask (ExerciseName string, Weight string, Reps string, Sets string) *WorkoutTaskSchema {
+	return &WorkoutTaskSchema{
 		ExerciseName: ExerciseName,
 		Weight: Weight,
 		Reps: Reps,

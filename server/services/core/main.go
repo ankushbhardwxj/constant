@@ -13,8 +13,5 @@ func main() {
 		c.SendString("Service is up")
 	})
 	loaders.Loaders(app)
-	api := app.Group("/api/v1", handler)
-	if api != nil {
-		app.Listen(":3001")
-	}
+	app.Listen(":3001")
 }

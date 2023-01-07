@@ -2,12 +2,13 @@ package loaders
 
 import (
 	"github.com/ankushbhardwaj/core/db"
-	"github.com/ankushbhardwaj/core/handlers"
+	"github.com/ankushbhardwaj/core/routes"
+	"github.com/gofiber/fiber"
 	"github.com/joho/godotenv"
 )
 
-func Loaders() {
+func Loaders(app *fiber.App) {
 	godotenv.Load(".env.development")
 	db.DbLoader()
-	handlers.HandlerLoader()
+	routes.RouteLoader(app)
 }

@@ -8,6 +8,8 @@ import {
   TextArea,
   useDisclose,
   Text,
+  Select,
+  CheckIcon,
 } from "native-base";
 import React, { useState } from "react";
 import { TextInput, View } from "react-native";
@@ -83,7 +85,7 @@ const WorkoutTaskScreen: React.FC<IWorkoutTaskProps> = () => {
             </View>
             <View style={{ marginTop: 20 }}>
               <Heading size="sm">Exercise Name</Heading>
-              <TextInput
+              {/* <TextInput
                 style={{
                   borderWidth: 1,
                   padding: 10,
@@ -93,7 +95,31 @@ const WorkoutTaskScreen: React.FC<IWorkoutTaskProps> = () => {
                 value={exerciseName}
                 onChangeText={setExerciseName}
                 placeholder="Bench press"
-              />
+              /> */}
+              <Select
+                selectedValue={exerciseName}
+                accessibilityLabel="Choose Exercise"
+                _selectedItem={{
+                  bg: "grey.600",
+                  endIcon: <CheckIcon size="5" />,
+                }}
+                mt={1}
+                onValueChange={(itemValue) => setExerciseName(itemValue)}
+              >
+                <Select.Item label="Bench Press" value="bench press" />
+                <Select.Item
+                  label="Inclined Bench Press"
+                  value="inclined bench press"
+                />
+                <Select.Item
+                  label="Dumbbell Chest Press"
+                  value="dumbbell chest press"
+                />
+                <Select.Item
+                  label="Tricep Cable Pulldown"
+                  value="tricep cable pulldown"
+                />
+              </Select>
             </View>
             <View style={{ marginTop: 20 }}>
               <Heading size="sm">Weight (kg)</Heading>
