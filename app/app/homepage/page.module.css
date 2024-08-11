@@ -1,0 +1,16 @@
+.header {
+  font-weight: 400;
+  background: -webkit-linear-gradient(black, black, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.header.outline-text {
+  outline-color: white;
+}
+
+.description {
+  text-align: center;
+  font-size: 27px;
+}
