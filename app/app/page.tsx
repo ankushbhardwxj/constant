@@ -1,15 +1,8 @@
-import { getSession } from "@auth0/nextjs-auth0";
-
-export default async function Home() {
-  const { user } = await getSession();
-
+export default function Main() {
   return (
-    user && (
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-      </div>
-    )
+    <div>
+      <h1>My First React App</h1>
+      <p>Welcome :)</p>
+    </div>
   );
 }

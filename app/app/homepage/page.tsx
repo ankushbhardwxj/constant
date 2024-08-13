@@ -1,21 +1,25 @@
-import { Container, Typography } from "@mui/material";
-import { Lora } from "next/font/google";
+import { Container } from "@mui/material";
+import { Lora, Roboto } from "next/font/google";
+import { LoginForm } from "../../components/auth";
 import styles from "./page.module.css";
 
 const lora = Lora({ weight: "400", subsets: ["latin"] });
+const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main>
       <title>constant</title>
-      <Container maxWidth="sm">
-        <Typography style={lora.style} className={styles.header} variant="h1">
+      <Container className={styles.mainContainer}>
+        <p style={lora.style} className={styles.header}>
           constant
-        </Typography>
-        <Typography className={styles.description} variant="h6">
+        </p>
+        <p style={roboto.style} className={styles.description}>
           for humans who get shit done
-        </Typography>
-        <a href="/api/auth/login">Login</a>
+        </p>
+        <div className={styles.loginFormContainer}>
+          <LoginForm />
+        </div>
       </Container>
     </main>
   );
